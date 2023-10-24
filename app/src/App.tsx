@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ITodo } from "./types";
 
@@ -6,7 +6,20 @@ import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
 
 function App() {
-  const [todos, setTodos] = useState<ITodo[]>([]);
+  const [todos, setTodos] = useState<ITodo[]>(getFromLocalStorage());
+
+  useEffect(() => {
+    return localStorage.setItem("my-todos", JSON.stringify(todos));
+  }, [todos]);
+
+  function getFromLocalStorage(): ITodo[] {
+    const storedData = localStorage.getItem("my-todos");
+    if (storedData) {
+      return JSON.parse(storedData);
+    } else {
+      return [];
+    }
+  }
 
   function onTodoAdd(str: string) {
     const obj: ITodo = {
