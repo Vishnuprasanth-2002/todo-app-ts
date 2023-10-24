@@ -13,4 +13,4 @@
 ### using 
 
    interface should be used to denote the type of objects
-   
+   event types also should be declare
