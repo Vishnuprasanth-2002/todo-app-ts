@@ -10,3 +10,7 @@
     isDone:false
    },
 ```
+### using 
+
+   interface should be used to denote the type of objects
+   
