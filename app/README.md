@@ -14,3 +14,7 @@
 
    interface should be used to denote the type of objects
    event types also should be declare
+
+### dont use 
+
+   type should not be any
